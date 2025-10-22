@@ -1,10 +1,17 @@
 {
   "name": "ts-perf-demo",
   "private": true,
+  "type": "module",
+  "license": "MIT",
   "scripts": {
     "gen": "ts-node --transpile-only scripts/generate.ts",
+    "gen:1000": "ts-node --transpile-only scripts/generate.ts 1000",
+    "gen:2000": "ts-node --transpile-only scripts/generate.ts 2000",
+    "gen:3000": "ts-node --transpile-only scripts/generate.ts 3000",
     "bench:type": "tsc -p tsconfig.type.json --pretty false --extendedDiagnostics",
     "bench:iface": "tsc -p tsconfig.interface.json --pretty false --extendedDiagnostics",
+    "bench:type:time": "/usr/bin/time -lp npm run bench:type",
+    "bench:iface:time": "/usr/bin/time -lp npm run bench:iface",
     "clean": "git clean -fdX || true"
   },
   "devDependencies": {
